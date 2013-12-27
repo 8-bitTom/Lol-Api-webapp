@@ -1,0 +1,83 @@
+<div class="container">
+    <header></header>
+    <div class="header">
+        <navigation></navigation>
+        <h3 class="text-muted">{{champName | champNameSpacer}}</h3>
+    </div>
+
+    <div class="champ-o-tron" ng-if="hasChamp" style="background-image : url('http://cdn.leagueoflegends.com/game-info/1.1.2/images/champion/backdrop/bg-{{currentChamp.name | lowercase}}.jpg')">
+        <div class="statContainer">
+            <!--<img class="img-rounded champImage" ng-src="http://cdn.leagueoflegends.com/game-info/1.1.2/images/champion/backdrop/bg-{{currentChamp.name | lowercase}}.jpg">-->
+            <div class="row">
+                <div class="col-sm-3">
+                    Attack: {{currentChamp.attackRank}}
+                </div>
+                <div class="span9"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-danger" style="width: {{currentChamp.attackRank + '0%'}}"></div>
+                    </div>
+                </div>
+                <div class="span9"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    Defense: {{currentChamp.defenseRank}}
+                </div>
+                <div class="span9"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar" style="width: {{currentChamp.defenseRank + '0%'}}"></div>
+                    </div>
+                </div>
+                <div class="span9"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    Magic: {{currentChamp.magicRank}}
+                </div>
+                <div class="span9"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-magic" style="width: {{currentChamp.magicRank + '0%'}}"></div>
+                    </div>
+                </div>
+                <div class="span9"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    Difficulty: {{currentChamp.difficultyRank}}
+                </div>
+                <div class="span9"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-warning" style="width: {{currentChamp.difficultyRank + '0%'}}"></div>
+                    </div>
+                </div>
+                <div class="span9"></div>
+            </div>
+
+            <div class="row">
+                <h1 class="champName">{{currentChamp.name | champNameSpacer}}</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <footer></footer>
+</div>

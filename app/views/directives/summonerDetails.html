@@ -1,0 +1,102 @@
+<div ng-controller="SummonerdetailsCtrl">
+    <ul class="nav nav-tabs">
+        <li ng-class="{active: details.games}"><a ng-click="getGames()">Games</a></li>
+        <li ng-class="{active: details.stats}"><a ng-click="getStats()">Stats</a></li>
+        <li ng-class="{active: details.masteries}"><a ng-click="getMasteries()">Masteries</a></li>
+        <li ng-class="{active: details.runes}"><a ng-click="getRunes()">Runes</a></li>
+    </ul>
+
+    <div class="row-fluid summonerDetails" ng-if="details.games">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <h2 class="panel-title col-sm-4">Recent Games</h2>
+
+                    <div class="btn-group col-sm-8">
+                        <button ng-repeat="item in games" type="button" class="btn btn-default" ng-click="selectGame($index)">
+                            {{$index +1}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+
+
+                <div class="panel gameInfo">
+                    <div class="row center">
+                        <dl class="col-sm-3 col-sm-offset-1"><dt>Played</dt><dd>{{currentGame.createDate | date: 'short'}}</dd></dl>
+                        <dl class="col-sm-1"><dt>Mode</dt><dd>{{currentGame.gameMode | statReadable}}</dd></dl>
+                        <dl class="col-sm-4"><dt>Type</dt><dd>{{currentGame.gameType | statReadable}} {{currentGame.subType | statReadable}}</dd></dl>
+                        <dl class="col-sm-3"><dt>Map</dt><dd>{{currentGame.mapId | idToMap}}</dd></dl>
+                    </div>
+                    <div class="ribbon-wrapper"><div ng-attr-class="ribbon {{currentGameRealStats.WIN | winFilter}}">{{currentGameRealStats.WIN | winFilter}}</div></div>
+                </div>
+
+                <div class="well">
+                    <div class="row">
+                        <div class="col-md-2 col-xs-2 center">
+                            <img ng-src="http://ddragon.leagueoflegends.com/cdn/3.14.41/img/champion/{{currentGame.championId | ChampIdToName:this}}.png" class="img-rounded champImage">
+                            <h4>{{currentGame.championId | ChampIdToName:this | champNameSpacer}}</h4>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-1" ng-repeat="item in currentGameRealStats.items">
+                                    <!--<div class="col-sm-9">{{item | itemToName:this}}</div>-->
+                                <div popover="{{item | itemToName:this}}" popover-trigger="mouseenter"  popover-placement="bottom" class="img-rounded col-sm-3" ng-attr-style="{{item | itemToBg:this}}"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 sumonerSubStats">
+                            <div class="col-md-2 center">
+                                <div><b>Level</b><br> <span class="badge level">{{currentGameRealStats.LEVEL}}</span></div>
+                            </div>
+                            <div class="col-md-2 center">
+                                {{currentGame.spell1}}
+                            </div>
+                            <div class="col-md-2 center">
+                                {{currentGame.spell2}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                Other Players:
+                <br>
+
+                <div ng-repeat="player in currentGame.fellowPlayers" class="well">
+                    championId: {{player.championId | ChampIdToName:this}}
+                    <br>
+                    summonerId: {{player.summonerId}}
+                </div>
+                <br>
+                <!--<ul class="list-group col-sm-5">-->
+                    <!--<li class="list-group-item" ng-repeat="item in currentGameRealStats.items">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-sm-9">{{item | itemToName:this}}</div>-->
+                            <!--<div class="img-rounded col-sm-3" ng-attr-style="{{item | itemToBg:this}}"></div>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--<ul class="list-group">-->
+                    <!--<li class="list-group-item" ng-repeat="stat in currentGame.statistics" ng-if="stat.name">-->
+                    <!--<span class="badge">{{stat.value}}</span>-->
+                    <!--{{stat.name | statReadable}}-->
+                    <!--</li>-->
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row-fluid" ng-if="details.stats">
+        Stats info goes here
+    </div>
+
+    <div class="row-fluid" ng-if="details.masteries">
+        masteries info goes here
+    </div>
+
+    <div class="row-fluid" ng-if="details.runes">
+        runes info goes here
+    </div>
+</div>

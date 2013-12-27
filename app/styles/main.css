@@ -1,0 +1,221 @@
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+  margin-top: 20px;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 900px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.champ-o-tron{
+    text-align: center;
+    box-shadow: 0px 0px 20px #000;
+    background-size:100%;
+    background-repeat:no-repeat;
+    height: 370px;
+    color: #ffffff;
+    padding: 20px 15px;
+    border-radius: 22px;
+    background-color: #000;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 0px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 769px){
+    .container{
+        min-width: 769px;
+    }
+}
+
+.floatLeft{
+    float: left;
+}
+
+.champPreview{
+    /*width: 18%;*/
+    margin: 5px 1% 0px 1%;
+    height: 162px;
+}
+
+.champImage{
+    width: 100%;
+}
+
+.statContainer{
+    position: relative;
+}
+
+.progress-bar-magic{
+    background-color: #800080;
+}
+
+.center{
+    text-align: center;
+}
+
+.right{
+    text-align:right;
+}
+
+.summonerName{
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.badge.level{
+    background-color: #f0ad4e;
+}
+.searchAgain{
+    margin-bottom: 5px;
+}
+.champName{
+    text-shadow: 0px 0px 10px #000;
+}
+
+.summonerDetails .panel{
+    margin-top: 15px;
+    box-shadow: 0px 0px 3px #CECECE;
+}
+
+.sumonerSubStats{
+    margin-top: 35px;
+}
+
+/*Ribbon*/
+.gameInfo{
+    overflow: hidden;
+    position: relative;
+}
+
+.ribbon-wrapper {
+    width: 85px;
+    height: 88px;
+    overflow: hidden;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+.ribbon {
+    font: bold 15px Sans-Serif;
+    color: #333;
+    text-align: center;
+    text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform:    rotate(-45deg);
+    -ms-transform:     rotate(-45deg);
+    -o-transform:      rotate(-45deg);
+    position: relative;
+    padding: 7px 0;
+    left: -28px;
+    top: 15px;
+    width: 120px;
+    -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+    -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+    box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon:before, .ribbon-green:after {
+    content: "";
+    border-top:   3px solid #6e8900;
+    border-left:  3px solid transparent;
+    border-right: 3px solid transparent;
+    position:absolute;
+    bottom: -3px;
+}
+
+.ribbon:before {
+    left: 0;
+}
+.ribbon:after {
+    right: 0;
+}
+
+.ribbon.Win{
+    background-color: #BFDC7A;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45));
+    background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45);
+    background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45);
+    background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45);
+    background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45);
+    color: #6a6340;
+}
+.ribbon.Loss{
+    background-color: #DC7A7A;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#DC7A7A), to(#BF4545));
+    background-image: -webkit-linear-gradient(top, #DC7A7A, #BF4545);
+    background-image:    -moz-linear-gradient(top, #DC7A7A, #BF4545);
+    background-image:     -ms-linear-gradient(top, #DC7A7A, #BF4545);
+    background-image:      -o-linear-gradient(top, #DC7A7A, #BF4545);
+    color: #DBDBDB;
+}

@@ -1,0 +1,62 @@
+<div class="container">
+    <header></header>
+    <div class="header">
+        <navigation></navigation>
+        <h3 class="text-muted">Summoner Info</h3>
+    </div>
+
+    <div class="well">
+        <form class="form-horizontal" name="summonerForm" ng-if="!haveSummoner" ng-submit="fetchSummoner()">
+            <div class="form-group">
+                <div class="col-sm-1"></div>
+                <label for="summonerName" class="col-sm-3 control-label">Summoner Name</label>
+
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="summonerName" name="summonerName" ng-model="summonerName">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Go!</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </form>
+        <div class="row-fluid" ng-if="haveSummoner">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9 text-right">
+                    <b class="text-muted">Not the summoner you were looking for?&nbsp;&nbsp;</b>
+                    <button type="button" class="btn btn-info searchAgain" ng-click="resetSearch()">Search Again
+                    </button>
+                </div>
+            </div>
+
+            <div class="well">
+                <div class="row">
+                    <div class="col-sm-2 col-xs-2">
+                        <img class="img-rounded champImage" ng-src="http://ddragon.leagueoflegends.com/cdn/3.14.41/img/profileicon/{{summoner.profileIconId}}.png">
+                    </div>
+                    <div class="col-sm-2 center">
+                        <div><b>Level</b><br> <span class="badge level">{{summoner.summonerLevel}}</span></div>
+                    </div>
+                    <div class="col-sm-8 center">
+                        <div class="summonerName">{{summoner.name}}</div>
+                    </div>
+                </div>
+                <!--<div class="row">-->
+                <!--<div class="col-sm-2"></div>-->
+                <!--<div class="col-sm-3"><div><b>ID:</b> {{summoner.id}}</div></div>-->
+                <!--<div class="col-sm-5 center"><div><b>Last Modified:</b> {{summoner.revisionDate | date:'shortDate'}}</div></div>-->
+                <!--<div class="col-sm-2"></div>-->
+                <!--</div>-->
+            </div>
+
+            <summoner-Details></summoner-Details>
+
+
+        </div>
+    </div>
+
+    <footer></footer>
+</div>

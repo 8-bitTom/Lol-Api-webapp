@@ -1,0 +1,24 @@
+<div class="container">
+    <header></header>
+    <div class="header">
+        <navigation></navigation>
+        <h3 class="text-muted">Champion List</h3>
+    </div>
+
+    <div class="jumbotron">
+        <!--<h1>Free {{today | date:'shortDate'}}</h1>-->
+        <div class="row">
+            <div class="animate-repeat floatLeft col-sm-3" ng-repeat="champ in allChamps">
+                <a ng-href="#/champ/{{champ.name}}">
+                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/3.14.41/img/champion/{{champ.name}}.png" class="img-rounded champImage">
+                    <h4>{{champ.name | champNameSpacer}}</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <p>Riot Games&trade;</p>
+    </div>
+</div>
